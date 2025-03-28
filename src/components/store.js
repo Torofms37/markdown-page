@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { createStoreHook } from "react-redux";
+import textSlice from "./markdownSlice";
 
 
 const store = configureStore({
   reducer: {
-    markdownText: kardownTextReducer,
+    text: textSlice,
   }
 });
 export default store

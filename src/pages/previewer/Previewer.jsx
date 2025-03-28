@@ -1,24 +1,41 @@
+import { useSelector } from "react-redux";
+import setText from "../../components/markdownSlice";
+
 export const Previewer = () => {
+  const text = useSelector((state) => state.text.value);
+  
+
   return (
-<div
+    <div
       className="d-flex justify-content-center border border-dark mt-3 shadow-lg"
-      style={{ backgroundColor: "#A9C5B2", height: "64vh", width: "60vw" }}
+      style={{ backgroundColor: "#A9C5B2", height: "30vh", width: "70vw" }}
     >
-      <div
-        className="d-flex border-bottom border-dark shadow-lg"
-        style={{ backgroundColor: "#7FA38E", width: "100%", height: "35px" }}
-      >
-        <span className="d-flex align-items-center fs-6 ms-1">
-          (<i className="iconoir-bonfire fs-6"></i>)
-        </span>
-        <p className="fs-4 px-1">
-          <strong>Previewer</strong>
-        </p>
-        <i className="iconoir-maximize fs-4"></i>
-        <i className="iconoir-minus-circle fs-4"></i>
+      {/* Contenedor principal en columna */}
+      <div className="d-flex flex-column w-100 h-100">
+        {/* Barra superior */}
+        <div
+          className="d-flex border-bottom border-dark shadow-lg"
+          style={{ backgroundColor: "#7FA38E", width: "100%", height: "35px" }}
+        >
+          <span className="d-flex align-items-center fs-6 ms-1">
+            (<i className="iconoir-bonfire fs-6"></i>)
+          </span>
+          <p className="fs-4 px-1">
+            <strong>Coder</strong>
+          </p>
+          <i className="iconoir-maximize fs-4"></i>
+          <i className="iconoir-minus-circle fs-4"></i>
+        </div>
+        <div
+          style={{ whiteSpace: "pre-wrap", fontSize: "16px", color: "#333" }}
+          dangerouslySetInnerHTML={{ __html: renderCustomMarkdown(text) }}
+        />
+        {/* <p className="py-2 px-2" style={{ whiteSpace: "pre-wrap", fontSize: "16px", color: "#333" }}>
+          {text || "El texto aparecerá aquí..."}
+        </p> */}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Previewer;

@@ -1,3 +1,3 @@
-const editorText = () => {
-  
-}
+const editorText = [
+  text: 
+]
