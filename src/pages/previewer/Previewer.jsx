@@ -1,9 +1,15 @@
-import { useSelector } from "react-redux";
-import setText from "../../components/markdownSlice";
+import { useDispatch, useSelector } from "react-redux";
+// import { renderCustomMarkdown } from "../editor/Coder";
+import { setText } from "../../components/markdownSlice";
+
 
 export const Previewer = () => {
-  const text = useSelector((state) => state.text.value);
-  
+  const dispatch = useDispatch();
+  const formattedText = useSelector((state) => state.markdown.formattedText);
+
+  const handleChangeText = (event) => {
+    dispatch(setText(event.target.value));
+  };
 
   return (
     <div
@@ -26,9 +32,9 @@ export const Previewer = () => {
           <i className="iconoir-maximize fs-4"></i>
           <i className="iconoir-minus-circle fs-4"></i>
         </div>
-        <div
+        <div className="px-2 py-2" onChange={handleChangeText}
           style={{ whiteSpace: "pre-wrap", fontSize: "16px", color: "#333" }}
-          dangerouslySetInnerHTML={{ __html: renderCustomMarkdown(text) }}
+          dangerouslySetInnerHTML={{ __html: formattedText }}
         />
         {/* <p className="py-2 px-2" style={{ whiteSpace: "pre-wrap", fontSize: "16px", color: "#333" }}>
           {text || "El texto aparecerá aquí..."}

@@ -1,29 +1,46 @@
 import { useDispatch } from "react-redux";
 import { setText } from "../../components/markdownSlice";
+import "../../index.css";
+
+//Funciona para renderizar el texto en markdown
+// export const renderCustomMarkdown = (inputText) => {
+//   // retorna lo que haya en inputtext sí
+//   return (
+//     inputText
+//       // separa el texto por saltos de línea
+//       .split("\n")
+//       // mapea cada línea y recibe la linea y un index
+//       .map((line, index) => {
+//         // si la línea empieza con "#" entonces retorna un h4 con el texto de la línea sin los primeros 5 caracteres
+//         if (line.startsWith("# ")) {
+//           return `<h1>${line.replace("# ", "")}</h1><hr class="border-line"/>`;
+//         } else if (line.startsWith("## ")) {
+//           return `<h2>${line.replace(
+//             "## ",
+//             ""
+//           )}</h2><hr className="border-linet"/>`;
+//         } else if (line.startsWith("### ")) {
+//           return `<h3>${line.replace("### ", "")}</h3><hr />`;
+//         } else if (line.startsWith("`") && line.endsWith("`")) {
+//           return `<span style="background-color: #FFF; color: black; font-weight: bold">${line
+//             .slice(1, -1)
+//             .replace(/</g, "&lt;")
+//             .replace(/>/g, "&gt;")}</span>`;
+//         } else {
+//           return `<p>${line}</p>`;
+//         }
+//       })
+//       .join("")
+//   );
+// };
 
 export const Coder = () => {
   const dispatch = useDispatch();
 
   const handleChangeText = (event) => {
     dispatch(setText(event.target.value));
+    console.log(event.target.value);
   };
-
-  // const renderCustomMarkdown = (inputText) => {
-  //   return inputText
-  //     .split("\n") // Separar el texto por líneas
-  //     .map((line, index) => {
-  //       if (line.startsWith("### ")) {
-  //         return `<h3 key=${index}>${line.replace("### ", "")}</h3><br/>`;
-  //       } else if (line.startsWith("## ")) {
-  //         return `<h2 key=${index}>${line.replace("## ", "")}</h2><br/>`;
-  //       } else if (line.startsWith("# ")) {
-  //         return `<h1 key=${index}>${line.replace("# ", "")}</h1><br/>`;
-  //       } else {
-  //         return `<p key=${index}>${line}</p>`;
-  //       }
-  //     })
-  //     .join(""); // Unir todo en un solo string HTML
-  // };
 
   return (
     <div

@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import textSlice from "./markdownSlice";
+import markdownSlice from "./markdownSlice";
 
 
 const store = configureStore({
   reducer: {
-    text: textSlice,
+    markdown: markdownSlice,
   }
 });
 export default store
