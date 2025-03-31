@@ -14,7 +14,7 @@ export const Previewer = () => {
   return (
     <div
       className="d-flex justify-content-center border border-dark mt-3 shadow-lg"
-      style={{ backgroundColor: "#A9C5B2", height: "30vh", width: "70vw" }}
+      style={{ backgroundColor: "#A9C5B2", height: "65vh", width: "70vw" }}
     >
       {/* Contenedor principal en columna */}
       <div className="d-flex flex-column w-100 h-100">
@@ -36,9 +36,6 @@ export const Previewer = () => {
           style={{ whiteSpace: "pre-wrap", fontSize: "16px", color: "#333" }}
           dangerouslySetInnerHTML={{ __html: formattedText }}
         />
-        {/* <p className="py-2 px-2" style={{ whiteSpace: "pre-wrap", fontSize: "16px", color: "#333" }}>
-          {text || "El texto aparecerá aquí..."}
-        </p> */}
       </div>
     </div>
   );
